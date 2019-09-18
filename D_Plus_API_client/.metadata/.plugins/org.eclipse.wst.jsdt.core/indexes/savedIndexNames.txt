@@ -1,0 +1,1 @@
+INDEX VERSION 1.4+C:\Users\anocetti\Documents\Eclipse\gv\d_plus\D_Plus_API_client\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
