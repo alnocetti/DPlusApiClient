@@ -2,38 +2,38 @@ package com.gv.client.model;
 
 public class AgrupacionArticulo {
 	
-	private int codigoArticulo;
+	private int CodigoArticulo;
 	
-	private int formaAgrupar;
+	private int FormaAgrupar;
 	
-	private String agrupacion;
+	private String Agrupacion;
 
 	public AgrupacionArticulo() {
 		super();
 	}
 
 	public int getCodigoArticulo() {
-		return codigoArticulo;
+		return CodigoArticulo;
 	}
 
 	public void setCodigoArticulo(int codigoArticulo) {
-		this.codigoArticulo = codigoArticulo;
+		this.CodigoArticulo = codigoArticulo;
 	}
 
 	public int getFormaAgrupar() {
-		return formaAgrupar;
+		return FormaAgrupar;
 	}
 
 	public void setFormaAgrupar(int formaAgrupar) {
-		this.formaAgrupar = formaAgrupar;
+		this.FormaAgrupar = formaAgrupar;
 	}
 
 	public String getAgrupacion() {
-		return agrupacion;
+		return Agrupacion;
 	}
 
 	public void setAgrupacion(String agrupacion) {
-		this.agrupacion = agrupacion;
+		this.Agrupacion = agrupacion;
 	}
 	
 	

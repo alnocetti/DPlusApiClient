@@ -1,16 +1,26 @@
 package com.gv.client.rest;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.gv.client.model.Cliente;
 
 public class RestClient {
+	
+	public static RestClient instance;
+	
+	public static RestClient getInstance() {
+		
+		return instance == null ? new RestClient() : instance;
+		
+	}
 	
 	public RestClient() {
 		super();
@@ -83,7 +93,7 @@ public class RestClient {
 	}
 
 	//metodo para enviar clientes
-	public ResponseClientes postClientes(String user, String password, ArrayList<Cliente> Datos ) { 
+	public ResponseClientes postClientes(String user, String password, ArrayList<Cliente> datos ) { 
 		
 		ResponseClientes response = null;
 		
@@ -98,9 +108,11 @@ public class RestClient {
 			
 			conn.setRequestMethod("POST");
 			
-			conn.setRequestProperty("Accept", "application/json");
+		    conn.setRequestProperty("Accept", "application/json; charset=utf-8");
 			
-			conn.setRequestProperty("Content-Type", "application/json");
+			conn.setRequestProperty("Accept-Charset", "UTF-8");
+			
+			conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 						
 			conn.setRequestProperty("user", user);
 			
@@ -109,16 +121,25 @@ public class RestClient {
 			conn.setDoOutput(true);
 			
 			conn.setDoInput(true);
+						
+			String jsonString = "";
 			
-			String jsonString = gson.toJson(Datos);
+			jsonString = gson.toJson(datos);
 			
-			System.out.println("Json format: " + jsonString);
+			String data = "{ \"Datos\":{ \"Clientes\":[" + jsonString + "], \"Empresa\" : 530 } }";
+						
+			System.out.println("Json format: " + data);
 			
-			String data = "{ \"Datos\":{ \"Clientes\":" + jsonString + ", \"Empresa\" : 530 } }";
+			System.out.println("cantidad clientes: " + datos.size());
 			
-			OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-			wr.write(data);
-			wr.flush();
+			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream(), "UTF-8"));
+			bw.write(data);
+			bw.flush();
+			bw.close();
+			
+//			OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+//			wr.write(data);
+//			wr.flush();
 			
 			if (conn.getResponseCode() != 200) {
 			

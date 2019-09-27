@@ -4,77 +4,77 @@ import java.util.List;
 
 public class Articulo {
 	
-	private int codigoArticulo;
+	private int CodigoArticulo;
 	
-	private String descripcionArticulo;
+	private String DescripcionArticulo;
 	
-	private String descripcionCorta;
+	private String DescripcionCorta;
 	
-	private boolean anulado;
+	private boolean Anulado;
 	
-	private int unidadesXBulto;
+	private int UnidadesXBulto;
 	
-	private int unidadMinimaFacturacion;
+	private int UnidadMinimaFacturacion;
 	
-	private int factorFacturacion;
+	private int FactorFacturacion;
 	
-	private boolean fracciona;
+	private boolean Fracciona;
 	
-	private float valorUMedida;
+	private float ValorUMedida;
 	
-	private float valorUMedida2;
+	private float ValorUMedida2;
 	
-	private boolean contenidoAlcoholico;
+	private boolean ContenidoAlcoholico;
 	
-	private boolean retornable;
+	private boolean Retornable;
 	
-	private boolean activoFijo;
+	private boolean ActivoFijo;
 	
-	private boolean pasable;
+	private boolean Pasable;
 	
-	private int bultosXPalet;
+	private int BultosXPalet;
 	
-	private int bultosXPiso;
+	private int BultosXPiso;
 	
-	private int apilabilidad;
+	private int Apilabilidad;
 	
-	private int cantidadPuertas;
+	private int CantidadPuertas;
 	
-	private String presentacionBulto;
+	private String PresentacionBulto;
 	
-	private String presentacionUnidad;
+	private String PresentacionUnidad;
 	
-	private float impuestosInternosFijos;
+	private float ImpuestosInternosFijos;
 	
-	private float impuestosInternosPorc;
+	private float ImpuestosInternosPorc;
 	
-	private float percepcionIBrutos;
+	private float PercepcionIBrutos;
 	
-	private boolean exentoIVA;
+	private boolean ExentoIVA;
 	
 	private float IVA;
 	
-	private String codigoEANBulto;
+	private String CodigoEANBulto;
 	
-	private String codigoEANUnidad;
+	private String CodigoEANUnidad;
 	
-	private boolean materialPOP;
+	private boolean MaterialPOP;
 	
-	private boolean paraMovilPreventa;
+	private boolean ParaMovilPreventa;
 	
-	private int aniosAmortizacion;
+	private int AniosAmortizacion;
 	
-	private String codigoCompania;
+	private String CodigoCompania;
 	
-	private String codigoFiscal;
+	private String CodigoFiscal;
 	
-	private boolean esCombo;
+	private boolean EsCombo;
 	
-	private boolean destacado;
+	private boolean Destacado;
 	
-	private List<AgrupacionArticulo> formaDeAgrupar;
+	private List<AgrupacionArticulo> FormaDeAgrupar;
 	
-	private String fuerzasDeVenta;
+	private String FuerzasDeVenta;
 
 	
 	public Articulo() {
@@ -83,242 +83,242 @@ public class Articulo {
 
 
 	public int getCodigoArticulo() {
-		return codigoArticulo;
+		return CodigoArticulo;
 	}
 
 
 	public void setCodigoArticulo(int codigoArticulo) {
-		this.codigoArticulo = codigoArticulo;
+		this.CodigoArticulo = codigoArticulo;
 	}
 
 
 	public String getDescripcionArticulo() {
-		return descripcionArticulo;
+		return DescripcionArticulo;
 	}
 
 
 	public void setDescripcionArticulo(String descripcionArticulo) {
-		this.descripcionArticulo = descripcionArticulo;
+		this.DescripcionArticulo = descripcionArticulo;
 	}
 
 
 	public String getDescripcionCorta() {
-		return descripcionCorta;
+		return DescripcionCorta;
 	}
 
 
 	public void setDescripcionCorta(String descripcionCorta) {
-		this.descripcionCorta = descripcionCorta;
+		this.DescripcionCorta = descripcionCorta;
 	}
 
 
 	public boolean isAnulado() {
-		return anulado;
+		return Anulado;
 	}
 
 
 	public void setAnulado(boolean anulado) {
-		this.anulado = anulado;
+		this.Anulado = anulado;
 	}
 
 
 	public int getUnidadesXBulto() {
-		return unidadesXBulto;
+		return UnidadesXBulto;
 	}
 
 
 	public void setUnidadesXBulto(int unidadesXBulto) {
-		this.unidadesXBulto = unidadesXBulto;
+		this.UnidadesXBulto = unidadesXBulto;
 	}
 
 
 	public int getUnidadMinimaFacturacion() {
-		return unidadMinimaFacturacion;
+		return UnidadMinimaFacturacion;
 	}
 
 
 	public void setUnidadMinimaFacturacion(int unidadMinimaFacturacion) {
-		this.unidadMinimaFacturacion = unidadMinimaFacturacion;
+		this.UnidadMinimaFacturacion = unidadMinimaFacturacion;
 	}
 
 
 	public int getFactorFacturacion() {
-		return factorFacturacion;
+		return FactorFacturacion;
 	}
 
 
 	public void setFactorFacturacion(int factorFacturacion) {
-		this.factorFacturacion = factorFacturacion;
+		this.FactorFacturacion = factorFacturacion;
 	}
 
 
 	public boolean isFracciona() {
-		return fracciona;
+		return Fracciona;
 	}
 
 
 	public void setFracciona(boolean fracciona) {
-		this.fracciona = fracciona;
+		this.Fracciona = fracciona;
 	}
 
 
 	public float getValorUMedida() {
-		return valorUMedida;
+		return ValorUMedida;
 	}
 
 
 	public void setValorUMedida(float valorUMedida) {
-		this.valorUMedida = valorUMedida;
+		this.ValorUMedida = valorUMedida;
 	}
 
 
 	public float getValorUMedida2() {
-		return valorUMedida2;
+		return ValorUMedida2;
 	}
 
 
 	public void setValorUMedida2(float valorUMedida2) {
-		this.valorUMedida2 = valorUMedida2;
+		this.ValorUMedida2 = valorUMedida2;
 	}
 
 
 	public boolean isContenidoAlcoholico() {
-		return contenidoAlcoholico;
+		return ContenidoAlcoholico;
 	}
 
 
 	public void setContenidoAlcoholico(boolean contenidoAlcoholico) {
-		this.contenidoAlcoholico = contenidoAlcoholico;
+		this.ContenidoAlcoholico = contenidoAlcoholico;
 	}
 
 
 	public boolean isRetornable() {
-		return retornable;
+		return Retornable;
 	}
 
 
 	public void setRetornable(boolean retornable) {
-		this.retornable = retornable;
+		this.Retornable = retornable;
 	}
 
 
 	public boolean isActivoFijo() {
-		return activoFijo;
+		return ActivoFijo;
 	}
 
 
 	public void setActivoFijo(boolean activoFijo) {
-		this.activoFijo = activoFijo;
+		this.ActivoFijo = activoFijo;
 	}
 
 
 	public boolean isPasable() {
-		return pasable;
+		return Pasable;
 	}
 
 
 	public void setPasable(boolean pasable) {
-		this.pasable = pasable;
+		this.Pasable = pasable;
 	}
 
 
 	public int getBultosXPalet() {
-		return bultosXPalet;
+		return BultosXPalet;
 	}
 
 
 	public void setBultosXPalet(int bultosXPalet) {
-		this.bultosXPalet = bultosXPalet;
+		this.BultosXPalet = bultosXPalet;
 	}
 
 
 	public int getBultosXPiso() {
-		return bultosXPiso;
+		return BultosXPiso;
 	}
 
 
 	public void setBultosXPiso(int bultosXPiso) {
-		this.bultosXPiso = bultosXPiso;
+		this.BultosXPiso = bultosXPiso;
 	}
 
 
 	public int getApilabilidad() {
-		return apilabilidad;
+		return Apilabilidad;
 	}
 
 
 	public void setApilabilidad(int apilabilidad) {
-		this.apilabilidad = apilabilidad;
+		this.Apilabilidad = apilabilidad;
 	}
 
 
 	public int getCantidadPuertas() {
-		return cantidadPuertas;
+		return CantidadPuertas;
 	}
 
 
 	public void setCantidadPuertas(int cantidadPuertas) {
-		this.cantidadPuertas = cantidadPuertas;
+		this.CantidadPuertas = cantidadPuertas;
 	}
 
 
 	public String getPresentacionBulto() {
-		return presentacionBulto;
+		return PresentacionBulto;
 	}
 
 
 	public void setPresentacionBulto(String presentacionBulto) {
-		this.presentacionBulto = presentacionBulto;
+		this.PresentacionBulto = presentacionBulto;
 	}
 
 
 	public String getPresentacionUnidad() {
-		return presentacionUnidad;
+		return PresentacionUnidad;
 	}
 
 
 	public void setPresentacionUnidad(String presentacionUnidad) {
-		this.presentacionUnidad = presentacionUnidad;
+		this.PresentacionUnidad = presentacionUnidad;
 	}
 
 
 	public float getImpuestosInternosFijos() {
-		return impuestosInternosFijos;
+		return ImpuestosInternosFijos;
 	}
 
 
 	public void setImpuestosInternosFijos(float impuestosInternosFijos) {
-		this.impuestosInternosFijos = impuestosInternosFijos;
+		this.ImpuestosInternosFijos = impuestosInternosFijos;
 	}
 
 
 	public float getImpuestosInternosPorc() {
-		return impuestosInternosPorc;
+		return ImpuestosInternosPorc;
 	}
 
 
 	public void setImpuestosInternosPorc(float impuestosInternosPorc) {
-		this.impuestosInternosPorc = impuestosInternosPorc;
+		this.ImpuestosInternosPorc = impuestosInternosPorc;
 	}
 
 
 	public float getPercepcionIBrutos() {
-		return percepcionIBrutos;
+		return PercepcionIBrutos;
 	}
 
 
 	public void setPercepcionIBrutos(float percepcionIBrutos) {
-		this.percepcionIBrutos = percepcionIBrutos;
+		this.PercepcionIBrutos = percepcionIBrutos;
 	}
 
 
 	public boolean isExentoIVA() {
-		return exentoIVA;
+		return ExentoIVA;
 	}
 
 
 	public void setExentoIVA(boolean exentoIVA) {
-		this.exentoIVA = exentoIVA;
+		this.ExentoIVA = exentoIVA;
 	}
 
 
@@ -333,112 +333,112 @@ public class Articulo {
 
 
 	public String getCodigoEANBulto() {
-		return codigoEANBulto;
+		return CodigoEANBulto;
 	}
 
 
 	public void setCodigoEANBulto(String codigoEANBulto) {
-		this.codigoEANBulto = codigoEANBulto;
+		this.CodigoEANBulto = codigoEANBulto;
 	}
 
 
 	public String getCodigoEANUnidad() {
-		return codigoEANUnidad;
+		return CodigoEANUnidad;
 	}
 
 
 	public void setCodigoEANUnidad(String codigoEANUnidad) {
-		this.codigoEANUnidad = codigoEANUnidad;
+		this.CodigoEANUnidad = codigoEANUnidad;
 	}
 
 
 	public boolean isMaterialPOP() {
-		return materialPOP;
+		return MaterialPOP;
 	}
 
 
 	public void setMaterialPOP(boolean materialPOP) {
-		this.materialPOP = materialPOP;
+		this.MaterialPOP = materialPOP;
 	}
 
 
 	public boolean isParaMovilPreventa() {
-		return paraMovilPreventa;
+		return ParaMovilPreventa;
 	}
 
 
 	public void setParaMovilPreventa(boolean paraMovilPreventa) {
-		this.paraMovilPreventa = paraMovilPreventa;
+		this.ParaMovilPreventa = paraMovilPreventa;
 	}
 
 
 	public int getAniosAmortizacion() {
-		return aniosAmortizacion;
+		return AniosAmortizacion;
 	}
 
 
 	public void setAniosAmortizacion(int aniosAmortizacion) {
-		this.aniosAmortizacion = aniosAmortizacion;
+		this.AniosAmortizacion = aniosAmortizacion;
 	}
 
 
 	public String getCodigoCompania() {
-		return codigoCompania;
+		return CodigoCompania;
 	}
 
 
 	public void setCodigoCompania(String codigoCompania) {
-		this.codigoCompania = codigoCompania;
+		this.CodigoCompania = codigoCompania;
 	}
 
 
 	public String getCodigoFiscal() {
-		return codigoFiscal;
+		return CodigoFiscal;
 	}
 
 
 	public void setCodigoFiscal(String codigoFiscal) {
-		this.codigoFiscal = codigoFiscal;
+		this.CodigoFiscal = codigoFiscal;
 	}
 
 
 	public boolean isEsCombo() {
-		return esCombo;
+		return EsCombo;
 	}
 
 
 	public void setEsCombo(boolean esCombo) {
-		this.esCombo = esCombo;
+		this.EsCombo = esCombo;
 	}
 
 
 	public boolean isDestacado() {
-		return destacado;
+		return Destacado;
 	}
 
 
 	public void setDestacado(boolean destacado) {
-		this.destacado = destacado;
+		this.Destacado = destacado;
 	}
 
 
 	public List<AgrupacionArticulo> getFormaDeAgrupar() {
-		return formaDeAgrupar;
+		return FormaDeAgrupar;
 	}
 
 
 	public void setFormaDeAgrupar(List<AgrupacionArticulo> formaDeAgrupar) {
-		this.formaDeAgrupar = formaDeAgrupar;
+		this.FormaDeAgrupar = formaDeAgrupar;
 	}
 
 
 	public String getFuerzasDeVenta() {
-		return fuerzasDeVenta;
+		return FuerzasDeVenta;
 	}
 
 
 	public void setFuerzasDeVenta(String fuerzasDeVenta) {
-		this.fuerzasDeVenta = fuerzasDeVenta;
+		this.FuerzasDeVenta = fuerzasDeVenta;
 	}
 	
 	

@@ -18,9 +18,9 @@ public class Cliente {
 	
 	private String DescAgrupacion;
 	
-	private int IdAreaAgrupa;
-	
-	private String DescAreaAgrupa;
+//	private int IdAreaAgrupa;
+//	
+//	private String DescAreaAgrupa;
 	
 	private int IdCanalAgrupa;
 	
@@ -32,11 +32,11 @@ public class Cliente {
 	
 	private boolean VendeAlcohol;
 	
-	private Date FechaAlta;
+	private String FechaAlta;
 	
 	private boolean Anulado;
 	
-	private Date FechaAnulacion;
+	private String FechaAnulacion;
 	
 	private float LatitudCoord;
 	
@@ -139,21 +139,21 @@ public class Cliente {
 		this.DescAgrupacion = descAgrupacion;
 	}
 
-	public int getIdAreaAgrupa() {
-		return IdAreaAgrupa;
-	}
-
-	public void setIdAreaAgrupa(int idAreaAgrupa) {
-		this.IdAreaAgrupa = idAreaAgrupa;
-	}
-
-	public String getDescAreaAgrupa() {
-		return DescAreaAgrupa;
-	}
-
-	public void setDescAreaAgrupa(String descAreaAgrupa) {
-		this.DescAreaAgrupa = descAreaAgrupa;
-	}
+//	public int getIdAreaAgrupa() {
+//		return IdAreaAgrupa;
+//	}
+//
+//	public void setIdAreaAgrupa(int idAreaAgrupa) {
+//		this.IdAreaAgrupa = idAreaAgrupa;
+//	}
+//
+//	public String getDescAreaAgrupa() {
+//		return DescAreaAgrupa;
+//	}
+//
+//	public void setDescAreaAgrupa(String descAreaAgrupa) {
+//		this.DescAreaAgrupa = descAreaAgrupa;
+//	}
 
 	public int getIdCanalAgrupa() {
 		return IdCanalAgrupa;
@@ -195,11 +195,11 @@ public class Cliente {
 		this.VendeAlcohol = vendeAlcohol;
 	}
 
-	public Date getFechaAlta() {
+	public String getFechaAlta() {
 		return FechaAlta;
 	}
 
-	public void setFechaAlta(Date fechaAlta) {
+	public void setFechaAlta(String fechaAlta) {
 		this.FechaAlta = fechaAlta;
 	}
 
@@ -211,11 +211,11 @@ public class Cliente {
 		this.Anulado = anulado;
 	}
 
-	public Date getFechaAnulacion() {
+	public String getFechaAnulacion() {
 		return FechaAnulacion;
 	}
 
-	public void setFechaAnulacion(Date fechaAnulacion) {
+	public void setFechaAnulacion(String fechaAnulacion) {
 		this.FechaAnulacion = fechaAnulacion;
 	}
 
