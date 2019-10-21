@@ -4,78 +4,78 @@ import java.util.Date;
 
 public class FuerzaDeVenta {
 	
-	private int codigoSucursal;
+	private int CodigoSucursal;
 	
-	private int codigoFuerza;
+	private int CodigoFuerza;
 	
-	private String descripcion;
+	private String Descripcion;
 	
-	private int codigoDeposito;
+	private int CodigoDeposito;
 	
-	private Date fechaPrimerSemana;
+	private Date FechaPrimerSemana;
 	
-	private int codigoJornada;
+	private int CodigoJornada;
 
 	public FuerzaDeVenta(int codigoSucursal, int codigoFuerza, String descripcion, int codigoDeposito,
 			Date fechaPrimerSemana, int codigoJornada) {
 		super();
-		this.codigoSucursal = codigoSucursal;
-		this.codigoFuerza = codigoFuerza;
-		this.descripcion = descripcion;
-		this.codigoDeposito = codigoDeposito;
-		this.fechaPrimerSemana = fechaPrimerSemana;
-		this.codigoJornada = codigoJornada;
+		this.CodigoSucursal = codigoSucursal;
+		this.CodigoFuerza = codigoFuerza;
+		this.Descripcion = descripcion;
+		this.CodigoDeposito = codigoDeposito;
+		this.FechaPrimerSemana = fechaPrimerSemana;
+		this.CodigoJornada = codigoJornada;
 	}
 	
 	public FuerzaDeVenta() {
 	}
 
 	public int getCodigoSucursal() {
-		return codigoSucursal;
+		return CodigoSucursal;
 	}
 
 	public void setCodigoSucursal(int codigoSucursal) {
-		this.codigoSucursal = codigoSucursal;
+		this.CodigoSucursal = codigoSucursal;
 	}
 
 	public int getCodigoFuerza() {
-		return codigoFuerza;
+		return CodigoFuerza;
 	}
 
 	public void setCodigoFuerza(int codigoFuerza) {
-		this.codigoFuerza = codigoFuerza;
+		this.CodigoFuerza = codigoFuerza;
 	}
 
 	public String getDescripcion() {
-		return descripcion;
+		return Descripcion;
 	}
 
 	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+		this.Descripcion = descripcion;
 	}
 
 	public int getCodigoDeposito() {
-		return codigoDeposito;
+		return CodigoDeposito;
 	}
 
 	public void setCodigoDeposito(int codigoDeposito) {
-		this.codigoDeposito = codigoDeposito;
+		this.CodigoDeposito = codigoDeposito;
 	}
 
 	public Date getFechaPrimerSemana() {
-		return fechaPrimerSemana;
+		return FechaPrimerSemana;
 	}
 
 	public void setFechaPrimerSemana(Date fechaPrimerSemana) {
-		this.fechaPrimerSemana = fechaPrimerSemana;
+		this.FechaPrimerSemana = fechaPrimerSemana;
 	}
 
 	public int getCodigoJornada() {
-		return codigoJornada;
+		return CodigoJornada;
 	}
 
 	public void setCodigoJornada(int codigoJornada) {
-		this.codigoJornada = codigoJornada;
+		this.CodigoJornada = codigoJornada;
 	}
 	
 }

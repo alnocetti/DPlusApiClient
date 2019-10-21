@@ -2,15 +2,22 @@ package com.gv.client.rest;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.gv.client.app.App;
 import com.gv.client.model.Cliente;
+import com.gv.client.model.ClienteEnRutaDeVenta;
+import com.gv.client.model.EstadoLote;
+import com.gv.client.model.PersonalComercial;
+import com.gv.client.model.RutaDeVenta;
 
 public class RestClient {
 	
@@ -93,11 +100,11 @@ public class RestClient {
 	}
 
 	//metodo para enviar clientes
-	public ResponseClientes postClientes(String user, String password, ArrayList<Cliente> datos ) { 
+	public ResponseLote postClientes(String user, String password, ArrayList<Cliente> datos ) { 
 		
-		ResponseClientes response = null;
+		ResponseLote response = null;
 		
-		Gson gson = new Gson();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		
 		try {
 
@@ -126,9 +133,17 @@ public class RestClient {
 			
 			jsonString = gson.toJson(datos);
 			
-			String data = "{ \"Datos\":{ \"Clientes\":[" + jsonString + "], \"Empresa\" : 530 } }";
+			String data = "{ \"Datos\":{ \"Clientes\":" + jsonString + ", \"Empresa\" :" + App.empresa + "} }";
+			
+			Writer writer =  new FileWriter("C:\\Users\\anocetti\\Desktop\\clientesJson.txt");
+			
+			gson.toJson(datos, writer);
+			
+			writer.flush();
+			
+			writer.close();
 						
-			System.out.println("Json format: " + data);
+			//System.out.println("Json format: " + data);
 			
 			System.out.println("cantidad clientes: " + datos.size());
 			
@@ -167,7 +182,7 @@ public class RestClient {
 			
 			aux = aux.replace("\\", "'");
 			
-			response = gson.fromJson(aux, ResponseClientes.class);
+			response = gson.fromJson(aux, ResponseLote.class);
 			
 			conn.disconnect();
 
@@ -180,6 +195,362 @@ public class RestClient {
 		return response;
 	}
 	
+	
+	//metodo para enviar personal comercial
+	public ResponseLote postPersonalComercial(String user, String password, ArrayList<PersonalComercial> datos ) { 
+		
+		ResponseLote response = null;
+		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		
+		try {
+
+			
+			URL url = new URL("http://dplusrc.chessdi.com.ar:8090/WSRest.svc/Interfaz_PersonalComercial");//your url i.e fetch data from .
+			
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			
+			conn.setRequestMethod("POST");
+			
+		    conn.setRequestProperty("Accept", "application/json; charset=utf-8");
+			
+			conn.setRequestProperty("Accept-Charset", "UTF-8");
+			
+			conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+						
+			conn.setRequestProperty("user", user);
+			
+			conn.setRequestProperty("pass", password);
+						
+			conn.setDoOutput(true);
+			
+			conn.setDoInput(true);
+						
+			String jsonString = "";
+			
+			jsonString = gson.toJson(datos);
+			
+			String data = "{ \"Datos\":{ \"PersonalComercial\":" + jsonString + ", \"Empresa\" :" + App.empresa + "} }";
+			
+			Writer writer =  new FileWriter("C:\\Users\\anocetti\\Desktop\\personalComercialJson.txt");
+			
+			gson.toJson(datos, writer);
+			
+			writer.flush();
+			
+			writer.close();
+									
+			//System.out.println("Json format: " + data);
+			
+			System.out.println("cantidad personal: " + datos.size());
+			
+			
+			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream(), "UTF-8"));
+			bw.write(data);
+			bw.flush();
+			bw.close();
+			
+			if (conn.getResponseCode() != 200) {
+			
+				throw new RuntimeException("Failed : HTTP Error code : "
+						+ conn.getResponseCode() + "-" + conn.getResponseMessage());
+			}
+			
+			InputStreamReader in = new InputStreamReader(conn.getInputStream());
+			
+			BufferedReader br = new BufferedReader(in);
+			
+			StringBuilder builder = new StringBuilder();
+			
+			String output;
+			
+			while ((output = br.readLine()) != null) {
+				
+				builder.append(output);
+				
+			}
+						
+			String aux = builder.toString();
+			
+			aux = aux.replaceAll("\\\"", "");
+			
+			aux = aux.replace("\\", "'");
+			
+			response = gson.fromJson(aux, ResponseLote.class);
+			
+			conn.disconnect();
+
+		} catch (Exception e) {
+		
+			System.out.println("Exception in NetClientGet:- " + e);
+		
+		}
+		
+		return response;
+	}
+	
+	//metodo para enviar rutas de venta
+	public ResponseLote postRutasDeVenta(String user, String password, ArrayList<RutaDeVenta> datos ) { 
+		
+		ResponseLote response = null;
+		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		
+		try {
+
+			
+			URL url = new URL("http://dplusrc.chessdi.com.ar:8090/WSRest.svc/Interfaz_RutasDeVenta");//your url i.e fetch data from .
+			
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			
+			conn.setRequestMethod("POST");
+			
+		    conn.setRequestProperty("Accept", "application/json; charset=utf-8");
+			
+			conn.setRequestProperty("Accept-Charset", "UTF-8");
+			
+			conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+						
+			conn.setRequestProperty("user", user);
+			
+			conn.setRequestProperty("pass", password);
+						
+			conn.setDoOutput(true);
+			
+			conn.setDoInput(true);
+						
+			String jsonString = "";
+			
+			jsonString = gson.toJson(datos);
+			
+			String data = "{ \"Datos\":{ \"RutasDeVenta\":" + jsonString + ", \"Empresa\" :" + App.empresa + "} }";
+			
+			Writer writer =  new FileWriter("C:\\Users\\anocetti\\Desktop\\rutasDeVentaJson.txt");
+			
+			gson.toJson(datos, writer);
+			
+			writer.flush();
+			
+			writer.close();
+						
+//			System.out.println("Json format: " + data);
+			
+			System.out.println("cantidad rutas: " + datos.size());
+			
+			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream(), "UTF-8"));
+			bw.write(data);
+			bw.flush();
+			bw.close();
+			
+//			OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+//			wr.write(data);
+//			wr.flush();
+			
+			if (conn.getResponseCode() != 200) {
+			
+				throw new RuntimeException("Failed : HTTP Error code : "
+						+ conn.getResponseCode() + "-" + conn.getResponseMessage());
+			}
+			
+			InputStreamReader in = new InputStreamReader(conn.getInputStream());
+			
+			BufferedReader br = new BufferedReader(in);
+			
+			StringBuilder builder = new StringBuilder();
+			
+			String output;
+			
+			while ((output = br.readLine()) != null) {
+				
+				builder.append(output);
+				
+			}
+						
+			String aux = builder.toString();
+			
+			aux = aux.replaceAll("\\\"", "");
+			
+			aux = aux.replace("\\", "'");
+			
+			response = gson.fromJson(aux, ResponseLote.class);
+			
+			conn.disconnect();
+
+		} catch (Exception e) {
+		
+			System.out.println("Exception in NetClientGet:- " + e);
+		
+		}
+		
+		return response;
+	}
+	
+	//metodo para enviar rutas de venta
+	public ResponseLote postClientesEnRutasDeVenta(String user, String password, ArrayList<ClienteEnRutaDeVenta> datos ) { 
+		
+		ResponseLote response = null;
+		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		
+		try {
+
+			
+			URL url = new URL("http://dplusrc.chessdi.com.ar:8090/WSRest.svc/Interfaz_ClientesRuta");//your url i.e fetch data from .
+			
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			
+			conn.setRequestMethod("POST");
+			
+		    conn.setRequestProperty("Accept", "application/json; charset=utf-8");
+			
+			conn.setRequestProperty("Accept-Charset", "UTF-8");
+			
+			conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+						
+			conn.setRequestProperty("user", user);
+			
+			conn.setRequestProperty("pass", password);
+						
+			conn.setDoOutput(true);
+			
+			conn.setDoInput(true);
+						
+			String jsonString = "";
+			
+			jsonString = gson.toJson(datos);
+			
+			String data = "{ \"Datos\":{ \"ClientesRuta\":" + jsonString + ", \"Empresa\" :" + App.empresa + "} }";
+			
+			Writer writer =  new FileWriter("C:\\Users\\anocetti\\Desktop\\ClientesEnRutasDeVentaJson.txt");
+			
+			gson.toJson(datos, writer);
+			
+			writer.flush();
+			
+			writer.close();
+						
+//			System.out.println("Json format: " + data);
+			
+			System.out.println("cantidad clientes en rutas: " + datos.size());
+			
+			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream(), "UTF-8"));
+			bw.write(data);
+			bw.flush();
+			bw.close();
+			
+//			OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+//			wr.write(data);
+//			wr.flush();
+			
+			if (conn.getResponseCode() != 200) {
+			
+				throw new RuntimeException("Failed : HTTP Error code : "
+						+ conn.getResponseCode() + "-" + conn.getResponseMessage());
+			}
+			
+			InputStreamReader in = new InputStreamReader(conn.getInputStream());
+			
+			BufferedReader br = new BufferedReader(in);
+			
+			StringBuilder builder = new StringBuilder();
+			
+			String output;
+			
+			while ((output = br.readLine()) != null) {
+				
+				builder.append(output);
+				
+			}
+						
+			String aux = builder.toString();
+			
+			aux = aux.replaceAll("\\\"", "");
+			
+			aux = aux.replace("\\", "'");
+			
+			response = gson.fromJson(aux, ResponseLote.class);
+			
+			conn.disconnect();
+
+		} catch (Exception e) {
+		
+			System.out.println("Exception in NetClientGet:- " + e);
+		
+		}
+		
+		return response;
+	}
+	
+	//metodo para consultar estado de un lote
+		public EstadoLote consultaLote(String user, String password, String lote ) { 
+			
+			ResponseEstadoLote response = null;
+			
+			Gson gson = new Gson();
+			
+			try {
+
+				
+				URL url = new URL("http://dplusrc.chessdi.com.ar:8090/WSRest.svc/Interfaz_EstadoLote/IdLote/" + lote);//your url i.e fetch data from .
+				
+				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+				
+				conn.setRequestMethod("GET");
+				
+			    conn.setRequestProperty("Accept", "application/json; charset=utf-8");
+				
+				conn.setRequestProperty("Accept-Charset", "UTF-8");
+				
+				conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+							
+				conn.setRequestProperty("user", user);
+				
+				conn.setRequestProperty("pass", password);
+							
+				conn.setDoOutput(true);
+				
+				conn.setDoInput(true);
+				
+				if (conn.getResponseCode() != 200) {
+				
+					throw new RuntimeException("Failed : HTTP Error code : "
+							+ conn.getResponseCode() + "-" + conn.getResponseMessage());
+				}
+				
+				InputStreamReader in = new InputStreamReader(conn.getInputStream());
+				
+				BufferedReader br = new BufferedReader(in);
+				
+				StringBuilder builder = new StringBuilder();
+				
+				String output;
+				
+				while ((output = br.readLine()) != null) {
+					
+					builder.append(output);
+					
+				}
+							
+				String aux = builder.toString();
+				
+				aux = aux.replaceAll("\\\\/", "-");
+
+				aux = aux.replaceAll("\\\"", "");
+				
+				aux = aux.replace("\\", "'");
+							
+				response = gson.fromJson(aux, ResponseEstadoLote.class);
+				
+				conn.disconnect();
+
+			} catch (Exception e) {
+			
+				System.out.println("Exception in NetClientGet:- " + e);
+			
+			}
+			
+			return response.getEstadoLote().get(0);
+		}
 
 
 }

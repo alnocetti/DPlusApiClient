@@ -2,19 +2,21 @@ package com.gv.client.model;
 
 public class PersonalComercial {
 	
-	private int codigoSucursal;
+	private int CodigoSucursal;
 	
-	private int codigoPersonal;
+	private int CodigoPersonal;
 	
-	private String descripcion;
+	private String Descripcion;
 	
-	private char cargo;
+	private String CodigoModoAtencion;
 	
-	private boolean anulado;
+	private String Cargo;
 	
-	private int codigoPersonalSuperior;
+	private boolean Anulado;
 	
-	private int codigoFuerza;
+	private int CodigoPersonalSuperior;
+	
+	private int CodigoFuerza;
 
 	public PersonalComercial() {
 		super();
@@ -22,59 +24,67 @@ public class PersonalComercial {
 	}
 
 	public int getCodigoSucursal() {
-		return codigoSucursal;
+		return CodigoSucursal;
 	}
 
 	public void setCodigoSucursal(int codigoSucursal) {
-		this.codigoSucursal = codigoSucursal;
+		this.CodigoSucursal = codigoSucursal;
 	}
 
 	public int getCodigoPersonal() {
-		return codigoPersonal;
+		return CodigoPersonal;
 	}
 
 	public void setCodigoPersonal(int codigoPersonal) {
-		this.codigoPersonal = codigoPersonal;
+		this.CodigoPersonal = codigoPersonal;
 	}
 
 	public String getDescripcion() {
-		return descripcion;
+		return Descripcion;
 	}
 
 	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+		this.Descripcion = descripcion;
 	}
 
-	public char getCargo() {
-		return cargo;
+	public String getCargo() {
+		return Cargo;
 	}
 
-	public void setCargo(char cargo) {
-		this.cargo = cargo;
+	public void setCargo(String cargo) {
+		this.Cargo = cargo;
 	}
 
 	public boolean isAnulado() {
-		return anulado;
+		return Anulado;
 	}
 
 	public void setAnulado(boolean anulado) {
-		this.anulado = anulado;
+		this.Anulado = anulado;
 	}
 
 	public int getCodigoPersonalSuperior() {
-		return codigoPersonalSuperior;
+		return CodigoPersonalSuperior;
 	}
 
 	public void setCodigoPersonalSuperior(int codigoPersonalSuperior) {
-		this.codigoPersonalSuperior = codigoPersonalSuperior;
+		this.CodigoPersonalSuperior = codigoPersonalSuperior;
 	}
 
 	public int getCodigoFuerza() {
-		return codigoFuerza;
+		return CodigoFuerza;
 	}
 
 	public void setCodigoFuerza(int codigoFuerza) {
-		this.codigoFuerza = codigoFuerza;
+		this.CodigoFuerza = codigoFuerza;
+	}
+
+	public String getCodigoModoAtencion() {
+		return CodigoModoAtencion;
+	}
+
+	public void setCodigoModoAtencion(String codigoModoAtencion) {
+		CodigoModoAtencion = codigoModoAtencion;
 	}
 	
 	

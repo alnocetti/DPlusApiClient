@@ -2,7 +2,7 @@ package com.gv.client.rest;
 
 import java.util.ArrayList;
 
-public class ResponseClientes {
+public class ResponseLote {
 	
 	private String IdImportacion;
 	
@@ -10,12 +10,12 @@ public class ResponseClientes {
 	
 	private ArrayList<String> Mensajes;
 
-	public ResponseClientes() {
+	public ResponseLote() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public ResponseClientes(String idImportacion, String error, ArrayList<String> mensajes) {
+	public ResponseLote(String idImportacion, String error, ArrayList<String> mensajes) {
 		super();
 		IdImportacion = idImportacion;
 		Error = error;

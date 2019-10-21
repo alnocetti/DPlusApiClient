@@ -1,48 +1,44 @@
 package com.gv.client.model;
 
-import java.util.Date;
-
 public class ClienteEnRutaDeVenta {
 	
-	private int codigoSucursal;
+	private int CodigoSucursal;
 	
-	private int codigoFuerza;
+	private int CodigoFuerza;
 	
-	private String codigoModoAtencion;
+	private String CodigoModoAtencion;
 	
-	private int codigoRuta;
+	private int CodigoRuta;
 	
-	private String codigoCliente;
+	private String CodigoCliente;
 	
-	private boolean anulado;
+	private boolean Anulado;
 	
-	private Date fechaDesde;
+	private String FechaDesde;
 	
-	private Date fechaHasta;
+	private String FechaHasta;
 	
-	private int periodicidad;
+	private int Periodicidad;
 	
-	private int semana;
+	private int Semana;
 	
-	private boolean visitaLunes;
+	private boolean AtiendeLunes;
 	
-	private boolean visitaMartes;
+	private boolean AtiendeMartes;
 	
-	private boolean visitaMiercoles;
+	private boolean AtiendeMiercoles;
 	
-	private boolean visitaJueves;
+	private boolean AtiendeJueves;
 	
-	private boolean visitaViernes;
+	private boolean AtiendeViernes;
 	
-	private boolean visitaSabado;
+	private boolean AtiendeSabado;
 	
-	private boolean visitaDomingo;
+	private boolean AtiendeDomingo;
 	
-	private int ordenDeVisita;
+	private int OrdenDeVisita;
 	
-	private int rangoHoraDesde;
-	
-	private int rangoHoraHasta;
+	private String FechaAnulacion;
 
 	public ClienteEnRutaDeVenta() {
 		super();
@@ -50,163 +46,157 @@ public class ClienteEnRutaDeVenta {
 	}
 
 	public int getCodigoSucursal() {
-		return codigoSucursal;
+		return CodigoSucursal;
 	}
 
 	public void setCodigoSucursal(int codigoSucursal) {
-		this.codigoSucursal = codigoSucursal;
+		this.CodigoSucursal = codigoSucursal;
 	}
 
 	public int getCodigoFuerza() {
-		return codigoFuerza;
+		return CodigoFuerza;
 	}
 
 	public void setCodigoFuerza(int codigoFuerza) {
-		this.codigoFuerza = codigoFuerza;
+		this.CodigoFuerza = codigoFuerza;
 	}
 
 	public String getCodigoModoAtencion() {
-		return codigoModoAtencion;
+		return CodigoModoAtencion;
 	}
 
 	public void setCodigoModoAtencion(String codigoModoAtencion) {
-		this.codigoModoAtencion = codigoModoAtencion;
+		this.CodigoModoAtencion = codigoModoAtencion;
 	}
 
 	public int getCodigoRuta() {
-		return codigoRuta;
+		return CodigoRuta;
 	}
 
 	public void setCodigoRuta(int codigoRuta) {
-		this.codigoRuta = codigoRuta;
+		this.CodigoRuta = codigoRuta;
 	}
 
 	public String getCodigoCliente() {
-		return codigoCliente;
+		return CodigoCliente;
 	}
 
 	public void setCodigoCliente(String codigoCliente) {
-		this.codigoCliente = codigoCliente;
+		this.CodigoCliente = codigoCliente;
 	}
 
 	public boolean isAnulado() {
-		return anulado;
+		return Anulado;
 	}
 
 	public void setAnulado(boolean anulado) {
-		this.anulado = anulado;
+		this.Anulado = anulado;
 	}
 
-	public Date getFechaDesde() {
-		return fechaDesde;
+	public String getFechaDesde() {
+		return FechaDesde;
 	}
 
-	public void setFechaDesde(Date fechaDesde) {
-		this.fechaDesde = fechaDesde;
+	public void setFechaDesde(String fechaDesde) {
+		this.FechaDesde = fechaDesde;
 	}
 
-	public Date getFechaHasta() {
-		return fechaHasta;
+	public String getFechaHasta() {
+		return FechaHasta;
 	}
 
-	public void setFechaHasta(Date fechaHasta) {
-		this.fechaHasta = fechaHasta;
+	public void setFechaHasta(String fechaHasta) {
+		this.FechaHasta = fechaHasta;
 	}
 
 	public int getPeriodicidad() {
-		return periodicidad;
+		return Periodicidad;
 	}
 
 	public void setPeriodicidad(int periodicidad) {
-		this.periodicidad = periodicidad;
+		this.Periodicidad = periodicidad;
 	}
 
 	public int getSemana() {
-		return semana;
+		return Semana;
 	}
 
 	public void setSemana(int semana) {
-		this.semana = semana;
+		this.Semana = semana;
 	}
 
-	public boolean isVisitaLunes() {
-		return visitaLunes;
+
+
+	public boolean isAtiendeLunes() {
+		return AtiendeLunes;
 	}
 
-	public void setVisitaLunes(boolean visitaLunes) {
-		this.visitaLunes = visitaLunes;
+	public void setAtiendeLunes(boolean atiendeLunes) {
+		AtiendeLunes = atiendeLunes;
 	}
 
-	public boolean isVisitaMartes() {
-		return visitaMartes;
+	public boolean isAtiendeMartes() {
+		return AtiendeMartes;
 	}
 
-	public void setVisitaMartes(boolean visitaMartes) {
-		this.visitaMartes = visitaMartes;
+	public void setAtiendeMartes(boolean atiendeMartes) {
+		AtiendeMartes = atiendeMartes;
 	}
 
-	public boolean isVisitaMiercoles() {
-		return visitaMiercoles;
+	public boolean isAtiendeMiercoles() {
+		return AtiendeMiercoles;
 	}
 
-	public void setVisitaMiercoles(boolean visitaMiercoles) {
-		this.visitaMiercoles = visitaMiercoles;
+	public void setAtiendeMiercoles(boolean atiendeMiercoles) {
+		AtiendeMiercoles = atiendeMiercoles;
 	}
 
-	public boolean isVisitaJueves() {
-		return visitaJueves;
+	public boolean isAtiendeJueves() {
+		return AtiendeJueves;
 	}
 
-	public void setVisitaJueves(boolean visitaJueves) {
-		this.visitaJueves = visitaJueves;
+	public void setAtiendeJueves(boolean atiendeJueves) {
+		AtiendeJueves = atiendeJueves;
 	}
 
-	public boolean isVisitaViernes() {
-		return visitaViernes;
+	public boolean isAtiendeViernes() {
+		return AtiendeViernes;
 	}
 
-	public void setVisitaViernes(boolean visitaViernes) {
-		this.visitaViernes = visitaViernes;
+	public void setAtiendeViernes(boolean atiendeViernes) {
+		AtiendeViernes = atiendeViernes;
 	}
 
-	public boolean isVisitaSabado() {
-		return visitaSabado;
+	public boolean isAtiendeSabado() {
+		return AtiendeSabado;
 	}
 
-	public void setVisitaSabado(boolean visitaSabado) {
-		this.visitaSabado = visitaSabado;
+	public void setAtiendeSabado(boolean atiendeSabado) {
+		AtiendeSabado = atiendeSabado;
 	}
 
-	public boolean isVisitaDomingo() {
-		return visitaDomingo;
+	public boolean isAtiendeDomingo() {
+		return AtiendeDomingo;
 	}
 
-	public void setVisitaDomingo(boolean visitaDomingo) {
-		this.visitaDomingo = visitaDomingo;
+	public void setAtiendeDomingo(boolean atiendeDomingo) {
+		AtiendeDomingo = atiendeDomingo;
 	}
 
 	public int getOrdenDeVisita() {
-		return ordenDeVisita;
+		return OrdenDeVisita;
 	}
 
 	public void setOrdenDeVisita(int ordenDeVisita) {
-		this.ordenDeVisita = ordenDeVisita;
+		this.OrdenDeVisita = ordenDeVisita;
 	}
 
-	public int getRangoHoraDesde() {
-		return rangoHoraDesde;
+	public String getFechaAnulacion() {
+		return FechaAnulacion;
 	}
 
-	public void setRangoHoraDesde(int rangoHoraDesde) {
-		this.rangoHoraDesde = rangoHoraDesde;
-	}
-
-	public int getRangoHoraHasta() {
-		return rangoHoraHasta;
-	}
-
-	public void setRangoHoraHasta(int rangoHoraHasta) {
-		this.rangoHoraHasta = rangoHoraHasta;
+	public void setFechaAnulacion(String fechaAnulacion) {
+		FechaAnulacion = fechaAnulacion;
 	}
 	
 	
