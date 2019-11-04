@@ -1,12 +1,12 @@
 package com.gv.client.dbf.reader;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import com.gv.client.model.Cliente;
 import com.gv.client.model.ClienteEnRutaDeVenta;
-import com.gv.client.model.FuerzaDeVenta;
 import com.gv.client.model.PersonalComercial;
 import com.gv.client.model.RutaDeVenta;
 import com.linuxense.javadbf.DBFException;
@@ -29,9 +29,9 @@ public class DbfReader {
 		super();
 	}
 	
-	public ArrayList<Cliente> readClientes() {
+	public ArrayList<Cliente> readClientes() throws ParseException {
 	
-		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 //		cliente.setFechaAlta(format.parse("2019/09/18"));
 		
 		ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -54,32 +54,58 @@ public class DbfReader {
 						condicionIva = "RI";
 						break;
 					case 3:
-						condicionIva = "MO";
+						condicionIva = "MT";
+						break;
+					case 4:
+						condicionIva = "EX";	
 						break;
 					case 5:
 						condicionIva = "CF";
 						break;
+					case 7:
+						condicionIva = "NC";
+						break;
+						
 				}
 				
 				Cliente cliente = new Cliente();									
 				
-				cliente.setCodigoCliente(row.getString("CLICODIGO"));
-				cliente.setNombre(row.getString("CLIRAZSOC"));
-				cliente.setDomicilio(row.getString("CLIDOMICI"));
-				if (row.getDate("CLIFECALTA") != null)
-					cliente.setFechaAlta(format.format(row.getDate("CLIFECALTA")));
-				cliente.setAnulado(false);	
-				cliente.setTipoContribuyente(condicionIva);
-				cliente.setIdTipoDocumentoCliente(99);
-//				cliente.setIdTipoDocumentoCliente(row.getInt("CLICODCUIT"));
-				
-				cliente.setCodListaPrecio(0);
 				cliente.setCodigoSucursal(1);
 				
-				if (row.getDate("CLIFECBAJA") != null)
+				cliente.setCodigoCliente(row.getString("CLICODIGO"));
+				
+				cliente.setNombre(row.getString("CLIRAZSOC"));
+				
+				cliente.setDomicilio(row.getString("CLIDOMICI"));
+				
+				cliente.setDescripcionLocalidad(row.getString("CLILOCALI"));
+				
+				cliente.setVendeAlcohol(row.getString("CLIALCOHOL").contentEquals("S") ? true : false);
+				
+				if (row.getDate("CLIFECALTA") != null)
+					cliente.setFechaAlta(format.format(row.getDate("CLIFECALTA")));
+								
+				if (row.getDate("CLIFECBAJA") != null) {
 					cliente.setAnulado(true);
+					cliente.setFechaAnulacion(format.format(row.getDate("CLIFECBAJA")));
+				}
+				
+				if(row.getString("CLILATI") != null && !row.getString("CLILATI").isEmpty())
+					cliente.setLatitudCoord(Float.parseFloat(row.getString("CLILATI")));
+				
+				if(row.getString("CLILONG") != null && !row.getString("CLILONG").isEmpty())
+					cliente.setLongitudCoord(Float.parseFloat(row.getString("CLILONG")));
+				
+				cliente.setTipoContribuyente(condicionIva);
+				
+				cliente.setIdTipoDocumentoCliente(row.getInt("CLICODCUIT"));
+				
+				cliente.setNumeroCuit(row.getString("CLICUIT"));
+				
+				cliente.setTelefonos(row.getString("CLITELEF"));				
 				
 				clientes.add(cliente);
+				
 
 			}
 
@@ -160,48 +186,9 @@ public class DbfReader {
 		
 	}
 	
-	public ArrayList<FuerzaDeVenta> readFuerzasDeVenta() {
-				
-		ArrayList<FuerzaDeVenta> fuerzasDeVenta = new ArrayList<FuerzaDeVenta>();
-		
-		reader = null;
-
-		try {
-
-			// create a DBFReader object
-			reader = new DBFReader(new FileInputStream("//192.168.90.2/visual/dtchofer.dbf"));
-
-			// get the field count if you want for some reasons like the following
-			DBFRow row;
-
-			while ((row = reader.nextRow()) != null) {
-				
-				FuerzaDeVenta fuerzaDeVenta = new FuerzaDeVenta();									
-				
-//				cliente.setIdTipoDocumentoCliente(row.getInt("CLICODCUIT"));
-
-				fuerzaDeVenta.setCodigoSucursal(1);
-				
-				fuerzasDeVenta.add(fuerzaDeVenta);
-
-			}
-
-		} catch (DBFException e) {
-			e.printStackTrace();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		finally {
-			DBFUtils.close(reader);
-		}
-		
-		return fuerzasDeVenta;
-		
-	}
-	
 	public ArrayList<RutaDeVenta> readRutasDeVenta() {
 		
-		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
 		ArrayList<RutaDeVenta> rutasDeVenta = new ArrayList<RutaDeVenta>();
 		
@@ -280,7 +267,7 @@ public class DbfReader {
 	
 	public ArrayList<ClienteEnRutaDeVenta> readClientesEnRutasDeVenta() {
 		
-		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
 		ArrayList<ClienteEnRutaDeVenta> clientesEnRutas = new ArrayList<ClienteEnRutaDeVenta>();
 		
@@ -322,6 +309,7 @@ public class DbfReader {
 							crdv.setFechaDesde(rdv.getFechaDesde());
 							
 							crdv.setPeriodicidad(rdv.getPeriodicidad());
+							
 							crdv.setSemana(rdv.getSemana());
 							
 							//atiende lunes

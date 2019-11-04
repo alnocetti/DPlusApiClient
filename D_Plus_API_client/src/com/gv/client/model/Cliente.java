@@ -12,6 +12,8 @@ public class Cliente {
 	
 	private String CodigoLocalidad;
 	
+	private String DescripcionLocalidad;
+	
 	private int IdAgrupacion;
 	
 	private String DescAgrupacion;
@@ -375,6 +377,14 @@ public class Cliente {
 
 	public void setIdSubcanalMKT(int idSubcanalMKT) {
 		this.IdSubcanalMKT = idSubcanalMKT;
+	}
+
+	public String getDescripcionLocalidad() {
+		return DescripcionLocalidad;
+	}
+
+	public void setDescripcionLocalidad(String descripcionLocalidad) {
+		DescripcionLocalidad = descripcionLocalidad;
 	}
 	
 	

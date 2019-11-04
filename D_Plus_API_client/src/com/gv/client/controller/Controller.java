@@ -1,5 +1,6 @@
 package com.gv.client.controller;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import com.gv.client.app.App;
@@ -33,7 +34,7 @@ public class Controller {
 	   
    }
    
-   public void enviarClientes() {
+   public void enviarClientes() throws ParseException {
 	   
 		//test envio clientes
 		System.out.println(">>> Test postClientes() <<<");

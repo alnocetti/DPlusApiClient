@@ -47,10 +47,15 @@ public class App {
 		//Controller.getInstance().enviarClientesEnRutasDeVenta();
 		
 		//test consulta estado lote
-		Controller.getInstance().consultarLote("1bcb2cea-f212-4939-920b-93a6bf7cab87"); //clientes
-		Controller.getInstance().consultarLote("a5fe6768-27f9-4908-b143-744662043f8a"); //personal comercial
-		Controller.getInstance().consultarLote("440e65e2-fd75-4a8d-85b6-f86194e5ffc4"); //rutas de venta
-		Controller.getInstance().consultarLote("562b8ed2-4192-43c6-8eb6-a846d104cf02"); //clientes en ruta
+		//Controller.getInstance().consultarLote("e7773086-40fe-48c6-b80a-709cc95b3699"); //clientes
+		Controller.getInstance().consultarLote("247f99a2-6a63-4688-92ff-4def7e75d278");
+		//0f1e9c52-be08-4bf5-874b-9eef1d90159d
+		//20b54039-66d8-433d-965e-9026209c9e04
+		//4432d291-adb0-4d6d-9f15-3f7a3696c15b
+		//247f99a2-6a63-4688-92ff-4def7e75d278
+		//Controller.getInstance().consultarLote("f0644770-b4aa-4fbb-b41a-de3b5d433000"); //personal comercial
+		//Controller.getInstance().consultarLote("bac428af-61c2-4b98-8a57-07bae9ec2f21"); //rutas de venta
+		//Controller.getInstance().consultarLote("0c2acb56-0a8d-41ae-aeec-bebb6d8b52e7"); //clientes en ruta
 
 	}
 
