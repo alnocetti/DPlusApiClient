@@ -22,7 +22,7 @@ public class App {
 	public static void main(String[] args) throws ParseException, ParserConfigurationException, SAXException, IOException {
 		
 		//leer configuracion local
-		File fXmlFile = new File("src/Configuration.xml");
+		File fXmlFile = new File("Configuration.xml");
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(fXmlFile);
@@ -47,8 +47,8 @@ public class App {
 		//Controller.getInstance().enviarClientesEnRutasDeVenta();
 		
 		//test consulta estado lote
-		//Controller.getInstance().consultarLote("e7773086-40fe-48c6-b80a-709cc95b3699"); //clientes
-		Controller.getInstance().consultarLote("247f99a2-6a63-4688-92ff-4def7e75d278");
+		Controller.getInstance().consultarLote("7d26fe93-c48f-4a40-a015-6c3f8a3f700c"); //clientes
+		//Controller.getInstance().consultarLote("247f99a2-6a63-4688-92ff-4def7e75d278");
 		//0f1e9c52-be08-4bf5-874b-9eef1d90159d
 		//20b54039-66d8-433d-965e-9026209c9e04
 		//4432d291-adb0-4d6d-9f15-3f7a3696c15b

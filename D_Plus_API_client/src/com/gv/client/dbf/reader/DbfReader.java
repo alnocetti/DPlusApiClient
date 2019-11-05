@@ -105,7 +105,6 @@ public class DbfReader {
 				cliente.setTelefonos(row.getString("CLITELEF"));				
 				
 				clientes.add(cliente);
-				
 
 			}
 
