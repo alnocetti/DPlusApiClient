@@ -3,4 +3,10 @@
 	<codigo>530</codigo>
 	<user>testveneroni</user>
 	<password>testservicios</password>
+	<dir_respuestas>\\192.168.90.2\correo\</dir_respuestas>
+	<SMTP_SERVER>mail.grupoveneroni.com.ar</SMTP_SERVER>
+	<USERNAME>alan.nocetti@grupoveneroni.com.ar</USERNAME>
+	<PASSWORD>Holamundo01</PASSWORD>
+	<EMAIL_FROM>alan.nocetti@grupoveneroni.com.ar</EMAIL_FROM>
+	<EMAIL_TO>alan.nocetti@grupoveneroni.com.ar</EMAIL_TO>
 </Empresa>

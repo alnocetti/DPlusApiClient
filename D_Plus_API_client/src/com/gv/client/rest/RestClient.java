@@ -8,7 +8,10 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -22,6 +25,8 @@ import com.gv.client.model.RutaDeVenta;
 public class RestClient {
 	
 	public static RestClient instance;
+	private Date date = new Date();
+	private DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
 	
 	public static RestClient getInstance() {
 		
@@ -135,13 +140,13 @@ public class RestClient {
 			
 			String data = "{ \"Datos\":{ \"Clientes\":" + jsonString + ", \"Empresa\" :" + App.empresa + "} }";
 			
-			Writer writer =  new FileWriter("C:\\Users\\anocetti\\Desktop\\clientesJson.txt");
+			Writer writer2 =  new FileWriter(App.dir_respuestas + "clientes.json");
 			
-			gson.toJson(datos, writer);
+			gson.toJson(datos, writer2);
 			
-			writer.flush();
+			writer2.flush();
 			
-			writer.close();
+			writer2.close();
 						
 			//System.out.println("Json format: " + data);
 			
@@ -183,6 +188,14 @@ public class RestClient {
 			aux = aux.replace("\\", "'");
 			
 			response = gson.fromJson(aux, ResponseLote.class);
+			
+			// guardo log de respuesta
+			response.setFecha(hourdateFormat.format(date));
+			String responseFileName = "Clientes.log";
+			Writer writer =  new FileWriter(App.dir_respuestas + responseFileName, true);
+			gson.toJson(response, writer);
+			writer.flush();
+			writer.close();
 			
 			conn.disconnect();
 
@@ -232,13 +245,13 @@ public class RestClient {
 			
 			String data = "{ \"Datos\":{ \"PersonalComercial\":" + jsonString + ", \"Empresa\" :" + App.empresa + "} }";
 			
-			Writer writer =  new FileWriter("C:\\Users\\anocetti\\Desktop\\personalComercialJson.txt");
+			Writer writer2 =  new FileWriter(App.dir_respuestas + "personalComercial.json");
 			
-			gson.toJson(datos, writer);
+			gson.toJson(datos, writer2);
 			
-			writer.flush();
+			writer2.flush();
 			
-			writer.close();
+			writer2.close();
 									
 			//System.out.println("Json format: " + data);
 			
@@ -277,6 +290,14 @@ public class RestClient {
 			aux = aux.replace("\\", "'");
 			
 			response = gson.fromJson(aux, ResponseLote.class);
+			
+			// guardo log de respuesta
+			response.setFecha(hourdateFormat.format(date));
+			String responseFileName = "PersonalComercial.log";
+			Writer writer =  new FileWriter(App.dir_respuestas + responseFileName, true);
+			gson.toJson(response, writer);
+			writer.flush();
+			writer.close();
 			
 			conn.disconnect();
 
@@ -325,13 +346,13 @@ public class RestClient {
 			
 			String data = "{ \"Datos\":{ \"RutasDeVenta\":" + jsonString + ", \"Empresa\" :" + App.empresa + "} }";
 			
-			Writer writer =  new FileWriter("C:\\Users\\anocetti\\Desktop\\rutasDeVentaJson.txt");
+			Writer writer2 =  new FileWriter(App.dir_respuestas + "rutasDeVenta.json");
 			
-			gson.toJson(datos, writer);
+			gson.toJson(datos, writer2);
 			
-			writer.flush();
+			writer2.flush();
 			
-			writer.close();
+			writer2.close();
 						
 //			System.out.println("Json format: " + data);
 			
@@ -373,6 +394,14 @@ public class RestClient {
 			aux = aux.replace("\\", "'");
 			
 			response = gson.fromJson(aux, ResponseLote.class);
+			
+			// guardo log de respuesta
+			response.setFecha(hourdateFormat.format(date));
+			String responseFileName = "RutasDeVenta.log";
+			Writer writer =  new FileWriter(App.dir_respuestas + responseFileName, true);
+			gson.toJson(response, writer);
+			writer.flush();
+			writer.close();
 			
 			conn.disconnect();
 
@@ -421,13 +450,13 @@ public class RestClient {
 			
 			String data = "{ \"Datos\":{ \"ClientesRuta\":" + jsonString + ", \"Empresa\" :" + App.empresa + "} }";
 			
-			Writer writer =  new FileWriter("C:\\Users\\anocetti\\Desktop\\ClientesEnRutasDeVentaJson.txt");
+			Writer writer2 =  new FileWriter(App.dir_respuestas + "ClientesEnRutasDeVenta.json");
 			
-			gson.toJson(datos, writer);
+			gson.toJson(datos, writer2);
 			
-			writer.flush();
+			writer2.flush();
 			
-			writer.close();
+			writer2.close();
 						
 //			System.out.println("Json format: " + data);
 			
@@ -470,6 +499,14 @@ public class RestClient {
 			
 			response = gson.fromJson(aux, ResponseLote.class);
 			
+			// guardo log de respuesta
+			response.setFecha(hourdateFormat.format(date));
+			String responseFileName = "ClientesEnRuta.log";
+			Writer writer =  new FileWriter(App.dir_respuestas + responseFileName, true);
+			gson.toJson(response, writer);
+			writer.flush();
+			writer.close();
+			
 			conn.disconnect();
 
 		} catch (Exception e) {
@@ -484,7 +521,7 @@ public class RestClient {
 	//metodo para consultar estado de un lote
 		public EstadoLote consultaLote(String user, String password, String lote ) { 
 			
-			ResponseEstadoLote response = null;
+			ResponseEstadoLote response = new ResponseEstadoLote();
 			
 			Gson gson = new Gson();
 			
@@ -549,7 +586,7 @@ public class RestClient {
 			
 			}
 			
-			return response.getEstadoLote().get(0);
+			return (response.getEstadoLote() != null ? response.getEstadoLote().get(0) : null);
 		}
 
 

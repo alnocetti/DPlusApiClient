@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.gv.client.app.App;
 import com.gv.client.dbf.reader.DbfReader;
+import com.gv.client.email.SendEmailSMTP;
 import com.gv.client.model.Cliente;
 import com.gv.client.model.ClienteEnRutaDeVenta;
 import com.gv.client.model.EstadoLote;
@@ -13,10 +14,12 @@ import com.gv.client.model.RutaDeVenta;
 import com.gv.client.rest.ResponseLogin;
 import com.gv.client.rest.ResponseLote;
 import com.gv.client.rest.RestClient;
+import com.gv.client.view.MainWindow;
 
 public class Controller {
 	
 	public static Controller instance;
+	private SendEmailSMTP sender = new SendEmailSMTP();
 	
    public static Controller getInstance() throws RuntimeException {
 	   
@@ -34,7 +37,7 @@ public class Controller {
 	   
    }
    
-   public void enviarClientes() throws ParseException {
+   public ResponseLote enviarClientes() throws ParseException {
 	   
 		//test envio clientes
 		System.out.println(">>> Test postClientes() <<<");
@@ -46,9 +49,19 @@ public class Controller {
 		System.out.println("Mensaje:" + response.getMensajes());
 		System.out.println("Id importacion: " + response.getIdImportacion());
 		
+		String subject = "Envio info D+ - Clientes";
+		String message = "Mensaje: " + response.getMensajes() + "\n";
+		message += "\nID importacion: " + response.getIdImportacion();
+		message += "nError: " + response.getError();
+		sender.setEMAIL_SUBJECT(subject);
+		sender.setEMAIL_TEXT(message);
+		sender.sendEmail();
+		
+		return response;
+
    }
    
-   public void enviarPersonal() {
+   public ResponseLote enviarPersonal() {
 	   
 		//test envio clientes
 		System.out.println(">>> Test postPersonalComercial() <<<");
@@ -60,9 +73,20 @@ public class Controller {
 		System.out.println("Mensaje:" + response.getMensajes());
 		System.out.println("Id importacion: " + response.getIdImportacion());
 		
+		String subject = "Envio info D+ - Personal comercial";
+		String message = "Mensaje: " + response.getMensajes();
+		message += "\nID importacion: " + response.getIdImportacion();
+		message += "nError: " + response.getError();
+
+		sender.setEMAIL_SUBJECT(subject);
+		sender.setEMAIL_TEXT(message);
+		sender.sendEmail();
+		
+		return response;
+
    }
    
-   public void enviarRutasDeVenta() {
+   public ResponseLote enviarRutasDeVenta() {
 	   
 		//test envio clientes
 		System.out.println(">>> Test postRutasDeVenta() <<<");
@@ -74,9 +98,20 @@ public class Controller {
 		System.out.println("Mensaje:" + response.getMensajes());
 		System.out.println("Id importacion: " + response.getIdImportacion());
 		
+		String subject = "Envio info D+ - Rutas de venta";
+		String message = "Mensaje: " + response.getMensajes();
+		message += "\nID importacion: " + response.getIdImportacion();
+		message += "nError: " + response.getError();
+
+		sender.setEMAIL_SUBJECT(subject);
+		sender.setEMAIL_TEXT(message);
+		sender.sendEmail();
+		
+		return response;
+
    }
    
-   public void enviarClientesEnRutasDeVenta() {
+   public ResponseLote enviarClientesEnRutasDeVenta() {
 	   
 		//test envio clientes
 		System.out.println(">>> Test postClientesEnRutasDeVenta() <<<");
@@ -88,20 +123,40 @@ public class Controller {
 		System.out.println("Mensaje:" + response.getMensajes());
 		System.out.println("Id importacion: " + response.getIdImportacion());
 		
+		String subject = "Envio info D+ - Clientes en ruta";
+		String message = "Mensaje: " + response.getMensajes();
+		message += "\nID importacion: " + response.getIdImportacion();
+		message += "nError: " + response.getError();
+
+		sender.setEMAIL_SUBJECT(subject);
+		sender.setEMAIL_TEXT(message);
+		sender.sendEmail();
+		
+		return response;
+		
    }
    
-   public void consultarLote(String lote) {
+   public EstadoLote consultarLote(String lote) {
 	   System.out.println(">>> test consultaLote() <<<");
 	   
 	   EstadoLote response = RestClient.getInstance().consultaLote(App.user, App.password, lote);
-	   System.out.println("Id lote: " + response.getIdLote());
-	   System.out.println("Empresa: " + Integer.toString(response.getEmpresa()));
-	   System.out.println("Id usuario: " + Integer.toString(response.getIdUsuario()));
-	   System.out.println("Entidad: " + response.getEntidad());
-	   System.out.println("Fecha carga: " + response.getFechaHoraCarga());
-	   System.out.println("Fecha fin: " + response.getFechaHoraFin());
-	   System.out.println("Estado: " + response.getEstado() + "-" + response.getDescEstado());
-	   System.out.println("Error: " + response.getLineaError() + "-" + response.getDescError());
+	   if (response != null) {
+			System.out.println("Id lote: " + response.getIdLote());
+			System.out.println("Empresa: " + Integer.toString(response.getEmpresa()));
+			System.out.println("Id usuario: " + Integer.toString(response.getIdUsuario()));
+			System.out.println("Entidad: " + response.getEntidad());
+			System.out.println("Fecha carga: " + response.getFechaHoraCarga());
+			System.out.println("Fecha fin: " + response.getFechaHoraFin());
+			System.out.println("Estado: " + response.getEstado() + "-" + response.getDescEstado());
+			System.out.println("Error: " + response.getLineaError() + "-" + response.getDescError());
+	   }
+	   return response;
    }
+   
+   public void startApp() {
+	   MainWindow window = new MainWindow();
+   }
+
+
    
 }

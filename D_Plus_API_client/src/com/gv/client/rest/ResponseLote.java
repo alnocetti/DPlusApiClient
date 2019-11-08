@@ -9,6 +9,8 @@ public class ResponseLote {
 	private String Error;
 	
 	private ArrayList<String> Mensajes;
+	
+	private String fecha;
 
 	public ResponseLote() {
 		super();
@@ -44,6 +46,14 @@ public class ResponseLote {
 
 	public void setMensajes(ArrayList<String> mensajes) {
 		Mensajes = mensajes;
+	}
+
+	public String getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
 	}
 
 	

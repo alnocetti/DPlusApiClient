@@ -18,6 +18,7 @@ public class App {
 	public static String user;
 	public static String password;
 	public static String empresa;
+	public static String dir_respuestas;
 
 	public static void main(String[] args) throws ParseException, ParserConfigurationException, SAXException, IOException {
 		
@@ -30,24 +31,25 @@ public class App {
 		empresa = doc.getElementsByTagName("codigo").item(0).getTextContent();
 		user = doc.getElementsByTagName("user").item(0).getTextContent();		
 		password = doc.getElementsByTagName("password").item(0).getTextContent();
+		dir_respuestas = doc.getElementsByTagName("dir_respuestas").item(0).getTextContent();
 		
 		//test token
 		//Controller.getInstance().obtenerToken();
 		
 		//test envio clientes
-		//Controller.getInstance().enviarClientes();
+		Controller.getInstance().enviarClientes();
 		
 		//test envio fuerza de venta
-		//Controller.getInstance().enviarPersonal();
+		Controller.getInstance().enviarPersonal();
 		
 		//test envio rutas de venta
-		//Controller.getInstance().enviarRutasDeVenta();
+		Controller.getInstance().enviarRutasDeVenta();
 
 		//test envio de clientes en ruta de venta
-		//Controller.getInstance().enviarClientesEnRutasDeVenta();
+		Controller.getInstance().enviarClientesEnRutasDeVenta();
 		
 		//test consulta estado lote
-		Controller.getInstance().consultarLote("7d26fe93-c48f-4a40-a015-6c3f8a3f700c"); //clientes
+		//Controller.getInstance().consultarLote("7d26fe93-c48f-4a40-a015-6c3f8a3f700c"); //clientes
 		//Controller.getInstance().consultarLote("247f99a2-6a63-4688-92ff-4def7e75d278");
 		//0f1e9c52-be08-4bf5-874b-9eef1d90159d
 		//20b54039-66d8-433d-965e-9026209c9e04
