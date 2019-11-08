@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Users/anocetti/Documents/Eclipse/gv/d_plus/D_Plus_API_client/libs/javadbf-1.9.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/anocetti/Documents/Eclipse/gv/d_plus/D_Plus_API_client/libs/gson-2.8.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/anocetti/git/gv/d_plus/D_Plus_API_client/libs/javax.mail.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

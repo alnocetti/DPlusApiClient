@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import com.gv.client.app.App;
 import com.gv.client.dbf.reader.DbfReader;
-import com.gv.client.email.SendEmailSMTP;
 import com.gv.client.model.Cliente;
 import com.gv.client.model.ClienteEnRutaDeVenta;
 import com.gv.client.model.EstadoLote;
@@ -19,7 +18,6 @@ import com.gv.client.view.MainWindow;
 public class Controller {
 	
 	public static Controller instance;
-	private SendEmailSMTP sender = new SendEmailSMTP();
 	
    public static Controller getInstance() throws RuntimeException {
 	   
@@ -49,14 +47,6 @@ public class Controller {
 		System.out.println("Mensaje:" + response.getMensajes());
 		System.out.println("Id importacion: " + response.getIdImportacion());
 		
-		String subject = "Envio info D+ - Clientes";
-		String message = "Mensaje: " + response.getMensajes() + "\n";
-		message += "\nID importacion: " + response.getIdImportacion();
-		message += "nError: " + response.getError();
-		sender.setEMAIL_SUBJECT(subject);
-		sender.setEMAIL_TEXT(message);
-		sender.sendEmail();
-		
 		return response;
 
    }
@@ -73,14 +63,6 @@ public class Controller {
 		System.out.println("Mensaje:" + response.getMensajes());
 		System.out.println("Id importacion: " + response.getIdImportacion());
 		
-		String subject = "Envio info D+ - Personal comercial";
-		String message = "Mensaje: " + response.getMensajes();
-		message += "\nID importacion: " + response.getIdImportacion();
-		message += "nError: " + response.getError();
-
-		sender.setEMAIL_SUBJECT(subject);
-		sender.setEMAIL_TEXT(message);
-		sender.sendEmail();
 		
 		return response;
 
@@ -98,15 +80,6 @@ public class Controller {
 		System.out.println("Mensaje:" + response.getMensajes());
 		System.out.println("Id importacion: " + response.getIdImportacion());
 		
-		String subject = "Envio info D+ - Rutas de venta";
-		String message = "Mensaje: " + response.getMensajes();
-		message += "\nID importacion: " + response.getIdImportacion();
-		message += "nError: " + response.getError();
-
-		sender.setEMAIL_SUBJECT(subject);
-		sender.setEMAIL_TEXT(message);
-		sender.sendEmail();
-		
 		return response;
 
    }
@@ -122,15 +95,6 @@ public class Controller {
 		
 		System.out.println("Mensaje:" + response.getMensajes());
 		System.out.println("Id importacion: " + response.getIdImportacion());
-		
-		String subject = "Envio info D+ - Clientes en ruta";
-		String message = "Mensaje: " + response.getMensajes();
-		message += "\nID importacion: " + response.getIdImportacion();
-		message += "nError: " + response.getError();
-
-		sender.setEMAIL_SUBJECT(subject);
-		sender.setEMAIL_TEXT(message);
-		sender.sendEmail();
 		
 		return response;
 		

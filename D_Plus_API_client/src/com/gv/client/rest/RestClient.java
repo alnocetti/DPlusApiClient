@@ -16,6 +16,7 @@ import java.util.Date;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.gv.client.app.App;
+import com.gv.client.email.SendEmailSMTP;
 import com.gv.client.model.Cliente;
 import com.gv.client.model.ClienteEnRutaDeVenta;
 import com.gv.client.model.EstadoLote;
@@ -27,7 +28,8 @@ public class RestClient {
 	public static RestClient instance;
 	private Date date = new Date();
 	private DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
-	
+	private SendEmailSMTP sender = new SendEmailSMTP();
+
 	public static RestClient getInstance() {
 		
 		return instance == null ? new RestClient() : instance;
@@ -189,6 +191,8 @@ public class RestClient {
 			
 			response = gson.fromJson(aux, ResponseLote.class);
 			
+			conn.disconnect();
+
 			// guardo log de respuesta
 			response.setFecha(hourdateFormat.format(date));
 			String responseFileName = "Clientes.log";
@@ -197,7 +201,15 @@ public class RestClient {
 			writer.flush();
 			writer.close();
 			
-			conn.disconnect();
+			// Envio mail
+			String subject = "Envio info D+ - Clientes";
+			String message = "Mensaje: " + response.getMensajes() + "\n";
+			message += "\nID importacion: " + response.getIdImportacion();
+			message += "\nError: " + response.getError();
+			sender.setEMAIL_SUBJECT(subject);
+			sender.setEMAIL_TEXT(message);
+			sender.sendEmail();
+			
 
 		} catch (Exception e) {
 		
@@ -291,6 +303,8 @@ public class RestClient {
 			
 			response = gson.fromJson(aux, ResponseLote.class);
 			
+			conn.disconnect();
+			
 			// guardo log de respuesta
 			response.setFecha(hourdateFormat.format(date));
 			String responseFileName = "PersonalComercial.log";
@@ -299,7 +313,15 @@ public class RestClient {
 			writer.flush();
 			writer.close();
 			
-			conn.disconnect();
+			// Envio mail
+			String subject = "Envio info D+ - Personal comercial";
+			String message = "Mensaje: " + response.getMensajes();
+			message += "\nID importacion: " + response.getIdImportacion();
+			message += "\nError: " + response.getError();
+			sender.setEMAIL_SUBJECT(subject);
+			sender.setEMAIL_TEXT(message);
+			sender.sendEmail();
+			
 
 		} catch (Exception e) {
 		
@@ -395,6 +417,8 @@ public class RestClient {
 			
 			response = gson.fromJson(aux, ResponseLote.class);
 			
+			conn.disconnect();
+			
 			// guardo log de respuesta
 			response.setFecha(hourdateFormat.format(date));
 			String responseFileName = "RutasDeVenta.log";
@@ -403,7 +427,15 @@ public class RestClient {
 			writer.flush();
 			writer.close();
 			
-			conn.disconnect();
+			// Envio mail
+			String subject = "Envio info D+ - Rutas de venta";
+			String message = "Mensaje: " + response.getMensajes();
+			message += "\nID importacion: " + response.getIdImportacion();
+			message += "\nError: " + response.getError();
+			sender.setEMAIL_SUBJECT(subject);
+			sender.setEMAIL_TEXT(message);
+			sender.sendEmail();
+			
 
 		} catch (Exception e) {
 		
@@ -499,6 +531,8 @@ public class RestClient {
 			
 			response = gson.fromJson(aux, ResponseLote.class);
 			
+			conn.disconnect();
+			
 			// guardo log de respuesta
 			response.setFecha(hourdateFormat.format(date));
 			String responseFileName = "ClientesEnRuta.log";
@@ -507,7 +541,14 @@ public class RestClient {
 			writer.flush();
 			writer.close();
 			
-			conn.disconnect();
+			// Envio mail
+			String subject = "Envio info D+ - Clientes en ruta";
+			String message = "Mensaje: " + response.getMensajes();
+			message += "\nID importacion: " + response.getIdImportacion();
+			message += "\nError: " + response.getError();
+			sender.setEMAIL_SUBJECT(subject);
+			sender.setEMAIL_TEXT(message);
+			sender.sendEmail();
 
 		} catch (Exception e) {
 		

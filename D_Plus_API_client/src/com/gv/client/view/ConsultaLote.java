@@ -160,7 +160,8 @@ public class ConsultaLote extends JFrame implements ActionListener{
 				this.textFieldEstado.setText(el.getEstado() + "-" + el.getDescEstado());
 				this.textFieldError.setText(el.getLineaError() + "-" + el.getDescError());
 			}else {
-				JOptionPane.showMessageDialog(null,"Error al consultar el lote", "Error ", JOptionPane.ERROR_MESSAGE);
+				
+				JOptionPane.showMessageDialog(this,"Error al consultar el lote", "Error ", JOptionPane.ERROR_MESSAGE);
 
 			}
 			
