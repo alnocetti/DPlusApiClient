@@ -32,7 +32,8 @@ public class RestClient {
 
 	public static RestClient getInstance() {
 		
-		return instance == null ? new RestClient() : instance;
+		instance = instance == null ? new RestClient() : instance;
+		return instance;
 		
 	}
 	

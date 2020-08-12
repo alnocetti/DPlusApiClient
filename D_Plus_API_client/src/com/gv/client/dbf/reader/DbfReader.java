@@ -21,7 +21,8 @@ public class DbfReader {
 	
 	public static DbfReader getInstance() {
 		
-		return instance == null ? new DbfReader() : instance;	
+		instance = instance == null ? new DbfReader() : instance;
+		return instance;	
 		
 	}
 	
@@ -102,7 +103,9 @@ public class DbfReader {
 				
 				cliente.setNumeroCuit(row.getString("CLICUIT"));
 				
-				cliente.setTelefonos(row.getString("CLITELEF"));				
+				cliente.setTelefonos(row.getString("CLITELEF"));
+				
+				cliente.setPotencial(row.getString("CLIFPOTEN") == "S" ? true : false);
 				
 				clientes.add(cliente);
 

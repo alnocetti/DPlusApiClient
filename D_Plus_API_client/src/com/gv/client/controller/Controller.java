@@ -21,7 +21,8 @@ public class Controller {
 	
    public static Controller getInstance() throws RuntimeException {
 	   
-		return instance == null ? new Controller() : instance;	
+	   instance = instance == null ? new Controller() : instance; 
+		return 	instance;
 
     }
    
